@@ -1,0 +1,21 @@
+---
+- name: Deploy healthcheck script
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Python dependencies
+      pip:
+        name: requests
+
+    - name: Copy healthcheck script
+      copy:
+        src: ./healthcheck.py
+        dest: /usr/local/bin/healthcheck.py
+        mode: '0755'
+
+    - name: Setup cron job
+      cron:
+        name: "Run healthcheck every minute"
+        job: "/usr/local/bin/healthcheck.py"
+        minute: "*"

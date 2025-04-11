@@ -1,4 +1,4 @@
-# PFG SRE Healthcheck Script
+# PFG Healthcheck Script
 
 ## Description
 This Python script collects endpoint health info every minute for 1 hour. It logs internal IP, external IP, endpoint DNS IP, HTTP status, response latency, and certificate expiration.

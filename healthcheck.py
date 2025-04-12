@@ -76,7 +76,7 @@ def main():
     write_header()
     for _ in range(DURATION_MINUTES):
         # Get the current time in the local time zone
-        timestamp = datetime.now(ZoneInfo("America/New_York")).isoformat()
+        timestamp = datetime.now().astimezone().isoformat()
         internal_ip = get_internal_ip()
         external_ip = get_external_ip()
 
